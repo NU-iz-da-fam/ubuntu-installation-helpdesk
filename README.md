@@ -12,12 +12,13 @@
 2. In case the 1st Solution can not solve the problem. Try the way mentioned in the link below.   
 https://askubuntu.com/questions/927199/nvidia-smi-has-failed-because-it-couldnt-communicate-with-the-nvidia-driver-ma  
 /   
-Sometimes, up to the devices, they might not require Configurating Boot Password. Just need to restart the device, then changes will be applied.
+Sometimes, up to the devices, they might <strong>NOT</strong> require Configurating Boot Password. Just need to restart the device, then changes will be applied.
 #### Check result
 ```
 nvidia-smi
 ```
-After entering this command, if "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver" does not appear, it's okay.
+After entering this command, if "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver" does not appear or display as the picture below, it's okay.   
+![alt text](images/nvidia-smi.png "nvidia-smi")
 - Tested devices: ASUS TUF GAMING A17(AMD Ryzen), LEGION 5(AMD Ryzen), MSI(Intel)
 
 ---------------
