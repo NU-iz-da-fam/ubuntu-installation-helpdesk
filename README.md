@@ -85,7 +85,7 @@ modprobe -r nouveau
 ```
 dpkg -l | grep linux-image
 ```
-![alt text](images/nvidia-drivers.png "nvidia-drivers") 
+![alt text](images/old_kernels.png "linux-images") 
 - Assume you want to remove ``` linux-image-5.15.0-67-generic ```, use command:
 ```
 sudo apt-get purge linux-image-5.15.0-67-generic
