@@ -79,3 +79,26 @@ modprobe -r nouveau
   sudo apt install nvidia-driver-535
   sudo reboot
   ```
+### 5. Remove Old Unused Kernels
+- You have installed lots of kernels, and some of them are outdated. You should remove them to have more free space or avoid booting into wrong kernels.
+- Check all installed kernels in your OS. And confirms which images should be deleted.
+```
+dpkg -l | grep linux-image
+```
+![alt text](images/nvidia-drivers.png "nvidia-drivers") 
+- Assume you want to remove ``` linux-image-5.15.0-67-generic ```, use command:
+```
+sudo apt-get purge linux-image-5.15.0-67-generic
+```
+- Or this command, up to you.
+```
+sudo apt-get remove linux-image-5.15.0-67-generic
+```
+- If you want to remove many old kernels, consider to use below commands, it will not affect our current kernel.
+```
+sudo apt-get autoremove
+```
+- If your deleted kernels are still in ```grub.cfg``` before being removed. You should update grub to make changes
+```
+sudo update-grub
+```
