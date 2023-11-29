@@ -1,4 +1,4 @@
-### 1. NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver.
+### 1. NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver (Software & Update).
 #### Problems
 - This issue happens when your computer can not detect or communicate with Nvidia driver.
 - This could lead to that we can not use our GPU even having.
@@ -21,4 +21,21 @@ After entering this command, if "NVIDIA-SMI has failed because it couldn't commu
 ![alt text](images/nvidia-smi.png "nvidia-smi")
 - Tested devices: ASUS TUF GAMING A17(AMD Ryzen), LEGION 5(AMD Ryzen), MSI(Intel)
 
----------------
+### 2. Install Nvidia Driver with command lines
+If you don't want to install with <strong>Software and Update</strong> app, you could use command line to install Nvidia Driver.
+- Firstly, check the drivers that suit your OS or recommended drivers you should use. Your terminal response may vary with image below
+```
+ubuntu-drivers devices
+```
+![alt text](images/nvidia-smi.png "nvidia-smi")
+Assume you want to install <strong>nvidia-driver-535</strong>, use the below commands.
+```
+sudo apt install nvidia-driver-535
+sudo reboot
+```
+#### Check result 
+```
+nvidia-smi
+```
+
+
