@@ -63,3 +63,19 @@ echo 'nouveau' | sudo tee -a /etc/modules
 ```
 modprobe -r nouveau
 ```
+### 4. Can't Boot into kernel
+- <strong>Nvidia Problems</strong>:
+  + You worked properly before, but after installing new nvidia drivers, you can not boot into kernel again. -> Uninstall all the things related to Nvidia Drivers.
+  + At <strong>Boot Screen</strong>, press F2 (or which based on your PC/Laptop) to go into GRUB Menu.
+  + Access to <strong>Recovery Mode</strong> of your kenel, go to <strong>root</strong>. Type the command:
+  + Now you will boot into kernel using Nouveau Graphics -> This works for me all the time.
+  ```
+  sudo apt-get remove --purge '^nvidia-.*'
+  sudo reboot
+  ```
+  + Or you can install nvidia driver and boot again. 
+  ```
+  sudo apt-get remove --purge '^nvidia-.*'
+  sudo apt install nvidia-driver-535
+  sudo reboot
+  ```
