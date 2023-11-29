@@ -27,8 +27,8 @@ If you don't want to install with <strong>Software and Update</strong> app, you 
 ```
 ubuntu-drivers devices
 ```
-![alt text](images/nvidia-drivers.png "nvidia-drivers")
-Assume you want to install <strong>nvidia-driver-535</strong>, use the below commands.
+![alt text](images/nvidia-drivers.png "nvidia-drivers")   
+- Assume you want to install <strong>nvidia-driver-535</strong>, use the below commands.
 ```
 sudo apt install nvidia-driver-535
 sudo reboot
