@@ -37,5 +37,29 @@ sudo reboot
 ```
 nvidia-smi
 ```
-
-
+### 3. Uninstall Nvidia drivers
+- Because of some reasons, if you don't want to use Nvidia Drvier or your application is not compatible with Nvidia Drvier, we have to remove it.
+- I would like to say thanks to this post https://askubuntu.com/questions/206283/how-can-i-uninstall-a-nvidia-driver-completely, extremely useful in this case. This <strong> 3. Uninstall Nvidia drivers </strong> is
+based on this post and some my own experience.
+- If you want to remove everything related to Nvidia Driver, do this:
+```
+sudo apt-get remove --purge '^nvidia-.*'
+```
+- In some cases, nvidia package also include the dependency the ```ubuntu-desktop``` package. So, you should also give the installation command for ```ubuntu-desktop``` package
+```
+sudo apt-get install ubuntu-desktop
+```
+- Sometimes, your OS will not include ```xorg.conf``` in /etc/X11, but if it exits, remove it
+```
+sudo rm /etc/X11/xorg.conf
+```
+That's all. So now, we completely uninstall Nvidia Drivers.
+- In the post, it offer one more line to make sure we use Nouveau Graphics.
+```
+echo 'nouveau' | sudo tee -a /etc/modules
+```
+- But in my case, I don't use it. Because later, if I want to reinstall Nvidia Drivers, I face error ```pk-client-error-quark``` and can not install Nvidia Drivers
+- If you use the above command, it's all okay, but later, I suggest you to type the below command before installation of Nvidia. This will unload Nouveau Graphics and ready install new graphics cards.
+```
+modprobe -r nouveau
+```
