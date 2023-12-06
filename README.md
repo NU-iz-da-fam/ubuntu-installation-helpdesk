@@ -79,6 +79,9 @@ modprobe -r nouveau
   sudo apt install nvidia-driver-535
   sudo reboot
   ```
+- <strong>Blacklist Nouveau</strong>:
+  + If you already uninstalled all the thing involved to Nvidia drivers but you still can not boot into the kernel, make sure that you do not <strong>blacklist nouveau</strong> graphics card in ```/etc/modprobe.d/```
+  + If yes, remove it and reboot.
 ### 5. Remove Old Unused Kernels
 - You have installed lots of kernels, and some of them are outdated. You should remove them to have more free space or avoid booting into wrong kernels.
 - Check all installed kernels in your OS. And confirms which images should be deleted.
