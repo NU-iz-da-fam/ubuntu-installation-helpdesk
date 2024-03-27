@@ -3,16 +3,22 @@
 - This issue happens when your computer can not detect or communicate with Nvidia driver.
 - This could lead to that we can not use our GPU even having.
 #### Reasons
-- In installation phase, maybe Nvidia driver was disabled.
-- Our ubuntu version is not compatible with current Nvidia driver.
+- In installation phase, Nvidia driver was disabled.
+- Running with Nouveau Graphics Card.
 #### Solutions
 1_1. Access <strong> Software & Update </strong>, choose <strong> Additional Drivers </strong>. Then choose <strong>NVIDIA Driver Metapackage ... (priorietary)</strong>. Then enter <strong> Configrating Boot Password </strong>, reboot.   
 1_2. In boot menu, choose <strong> Enroll MOK </strong>, type the key already created when installing Nvidia driver, continue.   
 /   
-2. In case the 1st Solution can not solve the problem. Try the way mentioned in the link below.   
+2. In case the 1st Solution can not solve the problem. Try the ways mentioned in the link below.   
 https://askubuntu.com/questions/927199/nvidia-smi-has-failed-because-it-couldnt-communicate-with-the-nvidia-driver-ma  
 /   
-Sometimes, up to the devices, they might <strong>NOT</strong> require Configurating Boot Password. Just need to restart the device, then changes will be applied.
+3. In case after installing Nvidia drivers, then **reboot**, you can not boot into kernel anymore, check this secret repos xD :  
+```
+```
+Sometimes, up to the devices, they might <strong>NOT</strong> require Configurating Boot Password. Just need to restart the device, then changes will be applied.   
+```
+sudo reboot
+```
 #### Check result
 ```
 nvidia-smi
@@ -34,10 +40,15 @@ sudo apt install nvidia-driver-535
 sudo reboot
 ```
 #### Check result 
-```
-nvidia-smi
-```
-### 3. Uninstall Nvidia drivers
+- Check see it any nvidia-drivers have been installed.
+  ```
+  dkms status
+  ```
+- Check Nvidia Drvier communication
+  ```
+  nvidia-smi
+  ```
+### 3. Uninstall Nvidia drivers (use Nouveau)
 - Because of some reasons, if you don't want to use Nvidia Drvier or your application is not compatible with Nvidia Drvier, we have to remove it.
 - I would like to say thanks to this post https://askubuntu.com/questions/206283/how-can-i-uninstall-a-nvidia-driver-completely, extremely useful in this case. This <strong> 3. Uninstall Nvidia drivers </strong> is
 based on this post and some my own experience.
@@ -45,7 +56,10 @@ based on this post and some my own experience.
 ```
 sudo apt-get remove --purge '^nvidia-.*'
 ```
-- In some cases, nvidia package also include the dependency the ```ubuntu-desktop``` package. So, you should also give the installation command for ```ubuntu-desktop``` package
+```
+sudo apt remove --purge '^libnvidia-.*'
+```
+- In some cases, nvidia package also include the dependencies the ```ubuntu-desktop``` package. So, you should also give the installation command for ```ubuntu-desktop``` package
 ```
 sudo apt-get install ubuntu-desktop
 ```
@@ -54,7 +68,7 @@ sudo apt-get install ubuntu-desktop
 sudo rm /etc/X11/xorg.conf
 ```
 That's all. So now, we completely uninstall Nvidia Drivers.
-- In the post, it offer one more line to make sure we use Nouveau Graphics.
+- [WARNING] In the post, it offer one more line to make sure we use Nouveau Graphics.
 ```
 echo 'nouveau' | sudo tee -a /etc/modules
 ```
@@ -82,6 +96,12 @@ modprobe -r nouveau
 - <strong>Blacklist Nouveau</strong>:
   + If you already uninstalled all the thing involved to Nvidia drivers but you still can not boot into the kernel, make sure that you do not <strong>blacklist nouveau</strong> graphics card in ```/etc/modprobe.d/```
   + If yes, remove it and reboot.
+  ```
+  sudo rm blacklist-name.conf
+  ```
+  ```
+  sudo reboot
+  ```
 ### 5. Remove Old Unused Kernels
 - You have installed lots of kernels, and some of them are outdated. You should remove them to have more free space or avoid booting into wrong kernels.
 - Check all installed kernels in your OS. And confirms which images should be deleted.
@@ -104,4 +124,7 @@ sudo apt-get autoremove
 - If your deleted kernels are still in ```grub.cfg``` before being removed. You should update grub to make changes
 ```
 sudo update-grub
+```
+```
+sudo update-initramfs -u -k all
 ```
