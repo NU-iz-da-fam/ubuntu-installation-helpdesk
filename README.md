@@ -14,7 +14,9 @@ https://askubuntu.com/questions/927199/nvidia-smi-has-failed-because-it-couldnt-
 /   
 3. In case after installing Nvidia drivers, then **reboot**, you can not boot into kernel anymore, check this secret repos xD :  
 ```
+git clone https://github.com/NU-iz-da-fam/nvidia-driver-kernel-boot-issue
 ```
+/
 Sometimes, up to the devices, they might <strong>NOT</strong> require Configurating Boot Password. Just need to restart the device, then changes will be applied.   
 ```
 sudo reboot
@@ -80,7 +82,7 @@ modprobe -r nouveau
 ### 4. Can't Boot into kernel
 - <strong>Nvidia Problems</strong>:
   + You worked properly before, but after installing new nvidia drivers, you can not boot into kernel again. -> Uninstall all the things related to Nvidia Drivers.
-  + At <strong>Boot Screen</strong>, press F2 (or which based on your PC/Laptop) to go into GRUB Menu.
+  + At <strong>Boot Screen</strong>, press Esc + F2 (or which based on your PC/Laptop) to go into GRUB Menu.
   + Access to <strong>Recovery Mode</strong> of your kenel, go to <strong>root</strong>. Type the command:
   + Now you will boot into kernel using Nouveau Graphics -> This works for me all the time.
   ```
