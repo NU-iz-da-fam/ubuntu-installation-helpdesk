@@ -1,3 +1,11 @@
+### I. Installation Procedure 
+### 1. Prepare devices:
+- You are on *Windows*, you'll need:
+  + An 8GB or larger USB drive.
+  + An Ubuntu ISO file. Access [Download Ubuntu](https://ubuntu.com/download/desktop) for details.
+  + Download [Rufus](https://rufus.ie/en/) to create USB boot.
+- Create USB boot which contains ...
+### II. After installation
 ### 1. NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver (Software & Update).
 #### Problems
 - This issue happens when your computer can not detect or communicate with Nvidia driver.
