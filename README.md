@@ -1,10 +1,27 @@
 ### I. Installation Procedure 
 ### 1. Prepare devices:
-- You are on *Windows*, you'll need:
+- You will need:
   + An 8GB or larger USB drive.
   + An Ubuntu ISO file. Access [Download Ubuntu](https://ubuntu.com/download/desktop) for details.
-  + Download [Rufus](https://rufus.ie/en/) to create USB boot.
-- Create USB boot which contains ...
+  + [*Windows*] Download [Rufus](https://rufus.ie/en/) to create USB boot.
+  + [*Ubuntu*] Search and use **Start Up Disk Creator** software.
+    ![alt text](images/startup-disk.png "startup-disk")
+- Create USB boot which contains writeable ubuntu image.
+### 2. Install image:
+- Select the USB drive to boot from.
+- Check keyboard, location.
+- Choose type to install image (alongside with Window, erase current Ubuntu to install the following one, ...)
+#### a. Select partition automatically.
+  + This option is easiest for novice to install ubuntu.
+#### b. Select partition manually.
+  + Select your drive (e.g., /dev/sda, /dev/nvme, ...) and create a new partition table (if needed).
+  + Select free space and click + to create partitions.
+  + EFI System Partition (type: EFI System Partition, size: 512MB or 1GB).
+  + Root Partition: Allocate space (e.g., 40 - 100 GB) formatted as ext4 and mounted at ```/```.
+  + Swap: Allocate space (1-2x RAM) for swap ram.
+  + Home Partition: Space for user files, formatted as ext4, mounted at ```/home```.
+- Then continue the installation procedure to complete.
+
 ### II. After installation
 ### 1. NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver (Software & Update).
 #### Problems
