@@ -107,7 +107,7 @@ modprobe -r nouveau
 ### 4. Can't Boot into kernel
 - <strong>Nvidia Problems</strong>:
   + You worked properly before, but after installing new nvidia drivers, you can not boot into kernel again. -> Uninstall all the things related to Nvidia Drivers.
-  + At <strong>Boot Screen</strong>, press Esc + F2 (or which based on your PC/Laptop) to go into GRUB Menu.
+  + At <strong>Boot Screen</strong>, press Esc + F2 (Asus), Esc + F12 (Legion) (or which based on your PC/Laptop) to go into GRUB Menu.
   + Access to <strong>Recovery Mode</strong> of your kenel, go to <strong>root</strong>. Type the command:
   + Now you will boot into kernel using Nouveau Graphics -> This works for me all the time.
   ```
@@ -129,6 +129,12 @@ modprobe -r nouveau
   ```
   sudo reboot
   ```
+- <strong>Disk has no free space</strong>
+  + If your filesystem has no free space, you can not boot into kernel anymore
+  + Go to Grub Menu at boot screen, and go to Recovery mode of your kernel.
+  + Remount the disk by ```mount -o remount,rw /```
+  + Go to user folder by ```cd /home/your_user_name/``` and remove unused folders, files to free disk space.
+  + Then boot normally into system.
 ### 5. Remove Old Unused Kernels
 - You have installed lots of kernels, and some of them are outdated. You should remove them to have more free space or avoid booting into wrong kernels.
 - Check all installed kernels in your OS. And confirms which images should be deleted.
