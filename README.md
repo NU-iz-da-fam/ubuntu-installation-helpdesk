@@ -130,11 +130,14 @@ modprobe -r nouveau
   sudo reboot
   ```
 - <strong>Disk has no free space</strong>
-  + If your filesystem has no free space, you can not boot into kernel anymore
-  + Go to Grub Menu at boot screen, and go to Recovery mode of your kernel.
+  + If your filesystem has no free space, you can not boot into kernel.
+  + Go to Grub Menu at boot screen, and go to **Recovery mode** of your kernel.
   + Remount the disk by ```mount -o remount,rw /```
+  + Check current disk state by ```df -h```. We now exactly know which partition is full.
   + Go to user folder by ```cd /home/your_user_name/``` and remove unused folders, files to free disk space.
+  + After eliminating files, folders, to check whether now we can boot into kernel. In GRUB menu, go to **Repair Broken Packages**. If system announces that we can repair, this means now we can start our system properly.
   + Then boot normally into system.
+
 ### 5. Remove Old Unused Kernels
 - You have installed lots of kernels, and some of them are outdated. You should remove them to have more free space or avoid booting into wrong kernels.
 - Check all installed kernels in your OS. And confirms which images should be deleted.
